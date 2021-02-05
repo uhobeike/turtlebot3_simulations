@@ -58,33 +58,33 @@
     </scene>
     <include>
       <uri>model://unit_cylinder</uri>
-      <pose>3.31506 0.858347 0 0 0 0</pose>
+      <pose>2.841600 0.075922 0 -0.000096 0.000022 0</pose>
       <name>unit_cylinder1</name>
     </include>
     <include>
       <uri>model://unit_cylinder</uri>
-      <pose>2.92151 0.851226 0 0 0 0</pose>
+      <pose>2.778150 0.441524 0 -0.000098 0.000022 0</pose>
       <name>unit_cylinder2</name>
     </include>
     <include>
-      <uri>model://unit_cylinder</uri>
-      <pose>0.604890 0.715556 0 0 0 0</pose>
-      <name>unit_cylinder3</name>
-    </include>
-    <include>
       <uri>model://bus1</uri>
-      <pose>3.759249 0.219470 0 0 -0 -3.033658</pose>
+      <pose>1.211809 0.046488 0 0 -0 -3.033658</pose>
       <name>bus1</name>
     </include>
     <include>
       <uri>model://bus1</uri>
-      <pose>0.272019 1.98431 0 0 -0 0.515618</pose>
+      <pose>1.945699 1.340349 0 0 -0 0.515618</pose>
       <name>bus2</name>
     </include>
     <include>
       <uri>model://bus1</uri>
-      <pose>4.33532 2.22348 0 0 0 -1.56296</pose>
+      <pose>3.694974 1.481070 0 -0.000006 0 -3.033660</pose>
       <name>bus3</name>
+    </include>
+    <include>
+      <uri>model://beer</uri>
+      <pose>5.448253 1.361525 0 0.000026 0.000012 -0.000072</pose>
+      <name>unit_cylinder3</name>
     </include>
   </world>
 </sdf>
