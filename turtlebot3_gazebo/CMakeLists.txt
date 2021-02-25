@@ -21,7 +21,7 @@ find_package(catkin REQUIRED COMPONENTS
 )
 
 find_package(gazebo REQUIRED)
-
+find_package(Boost REQUIRED COMPONENTS system)
 ################################################################################
 # Setup for python modules and scripts
 ################################################################################
@@ -46,23 +46,30 @@ catkin_package(
 ################################################################################
 # Build
 ################################################################################
-link_directories(${GAZEBO_LIBRARY_DIRS})
+link_directories(${GAZEBO_LIBRARY_DIRS} ${Boost_INCLUDE_DIRS})
 
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
   ${GAZEBO_INCLUDE_DIRS}
+  ${Boost_INCLUDE_DIRS}
 )
 
 add_executable(turtlebot3_drive src/turtlebot3_drive.cpp)
 add_dependencies(turtlebot3_drive ${${PROJECT_NAME}_EXPORTED_TARGETS} ${catkin_EXPORTED_TARGETS})
 target_link_libraries(turtlebot3_drive ${catkin_LIBRARIES} ${GAZEBO_LIBRARIES})
 
+add_library(pose_animation_plugin gazebo_plugin/src/pose_animation.cc)
+target_link_libraries(pose_animation_plugin ${GAZEBO_LIBRARIES} ${Boost_LIBRARIES})
 ################################################################################
 # Install
 ################################################################################
 install(TARGETS turtlebot3_drive
   RUNTIME DESTINATION ${CATKIN_PACKAGE_BIN_DESTINATION}
+)
+
+install(TARGETS pose_animation_plugin 
+  LIBRARY DESTINATION ${CATKIN_PACKAGE_LIB_DESTINATION}
 )
 
 install(DIRECTORY include/${PROJECT_NAME}/
